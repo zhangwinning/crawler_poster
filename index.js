@@ -6,7 +6,6 @@ const async = require('async');
 const arrange = require('./arrange');
 const log4js = require('log4js').getLogger("begin crawler");
 
-
 let loveURL = "http://dianying.fm/search/?genre=%E7%88%B1%E6%83%85&p=";
 
 // 根据图片url下载图片
@@ -63,9 +62,7 @@ let begin = () => {
     }, (err) => {
         log4js.info("downLoads url total: ", downLoads);
         arrange.arrange(process.argv[3], process.argv[4], (err, info) => {
-            if (err) {
-                console.error(err, info);
-            }
+            if (err) console.error(err, info);
             setTimeout(function () {
                 log4js.info("finish: success");
                 process.exit();
