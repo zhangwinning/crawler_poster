@@ -161,15 +161,13 @@ exports.arrange = (width, height, cb) => {
       - 因为这里有多次磁盘读写操作，即使是异步执行，磁盘更新也不会太及时，因此需要`setTimeout()`来使程序执行放慢速度。
       - 最后把生成的长条图片上下组合(`gmstateDes `变量的作用)。
 
-最后再来测试一下，执行`node index.js 1 3 4`，说明需要拉取1个网页，其中组合的新图片长度是3，高度是4。看一下`newOne.jpg `的大小, bingo搞定!!!
-
-```
-node index.js 1 3 4
-```
+最后再来测试一下，执行`node index.js 1 3 4`，命令行的参数的意思是说需要拉取1个网页，其中新图片长度是3，高度是4，看一下`newOne.jpg `的大小，bingo搞定!!!
 
 ![newOne.jpg](http://upload-images.jianshu.io/upload_images/5648502-c0cfb34943e7ee1c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 其实这里的图片大多是爱情片的海报，快七夕了，应应景就好。
+
+如果想要拉取其他类型的图片，改一下loveURL就好。
 
 老规矩最后来一个老郭的定场诗。
 
