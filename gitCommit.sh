@@ -6,5 +6,6 @@ then
 fi    
 echo "$commit_message"
 git add .
+git reset ./source
 git commit -m "$commit_message"
 git push
