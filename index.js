@@ -9,6 +9,7 @@ const log4js = require('log4js').getLogger("begin crawler");
 
 let loveURL = "http://dianying.fm/search/?genre=%E7%88%B1%E6%83%85&p=";
 
+// 根据图片url下载图片
 let download = function (uri, filename, cb) {
     request.head(uri, function (err, res, body) {
         request(uri, {
@@ -17,6 +18,7 @@ let download = function (uri, filename, cb) {
     });
 };
 
+// 从拉取的html中把src取出来
 let getSrc = function (body) {
     let $ = cheerio.load(body);
     let list = [];

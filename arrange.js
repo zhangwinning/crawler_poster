@@ -27,19 +27,21 @@ exports.arrange = (width, height, cb) => {
                 return cbGroup();
             });
         }, (err) => {
-            let integrations = fs.readdirSync('./destination');
-            let gmstateDes = gm('./destination/' + integrations[0]);
-            for (let i = 1; i < integrations.length; i++) {
-                gmstateDes.append('./destination/' + integrations[i]);
-            }
-            gmstateDes.write('./destination/' + "theLastOne.jpg", function (err) {
-                if (err) {
-                    console.dir(arguments);
-                    return cb(err);
+            setTimeout(function () {
+                let integrations = fs.readdirSync('./destination');
+                let gmstateDes = gm('./destination/' + integrations[0]);
+                for (let i = 1; i < integrations.length; i++) {
+                    gmstateDes.append('./destination/' + integrations[i]);
                 }
-                console.log(this.outname + " created  ::  " + arguments[3]);
-                return cb(null, 'finish');
-            });
+                gmstateDes.write('./destination/' + "theLastOne.jpg", function (err) {
+                    if (err) {
+                        console.dir(arguments);
+                        return cb(err);
+                    }
+                    console.log(this.outname + " created  ::  " + arguments[3]);
+                    return cb(null, 'finish');
+                });
+            }, 2000);
         });
     });
 }
