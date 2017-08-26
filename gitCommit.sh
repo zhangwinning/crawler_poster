@@ -5,6 +5,6 @@ then
     commit_message=":tada: update file" 
 fi    
 echo "$commit_message"
-git add index.js arrange.js package.json README.md
+git add .
 git commit -m "$commit_message"
 git push
